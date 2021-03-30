@@ -1,0 +1,5 @@
+Generated bill for order with id: 2
+Product Chicken Breast priced at 10.9
+Product Salad priced at 21.5
+Product Steak priced at 17.1
+Total of: 49.5

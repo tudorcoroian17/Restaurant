@@ -1,0 +1,478 @@
+package presentation;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import listeners.AddItemListener;
+
+import javax.swing.JTabbedPane;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JList;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.Component;
+import javax.swing.Box;
+
+@SuppressWarnings("serial")
+public class AdminGUI extends JFrame {
+
+	private static AddItemListener addItemListener;
+	
+	private JPanel contentPane;
+	
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	
+	public JButton btnAddItem;
+	public JButton btnShow;
+	public JButton btnAddIngredient;
+	public JButton btnUpdateItem;
+	public JButton btnDeleteItem;
+	public JButton btnShowItemsOn;
+	public JButton btnAddNewIngredient;
+	public JButton btnShow_1;
+	
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public void setContentPane(JPanel contentPane) {
+		this.contentPane = contentPane;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+	public void setTextField_1(JTextField textField_1) {
+		this.textField_1 = textField_1;
+	}
+
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+
+	public void setTextField_2(JTextField textField_2) {
+		this.textField_2 = textField_2;
+	}
+
+	public JTextField getTextField_3() {
+		return textField_3;
+	}
+
+	public void setTextField_3(JTextField textField_3) {
+		this.textField_3 = textField_3;
+	}
+
+	public JTextField getTextField_4() {
+		return textField_4;
+	}
+
+	public void setTextField_4(JTextField textField_4) {
+		this.textField_4 = textField_4;
+	}
+
+	public JTextField getTextField_5() {
+		return textField_5;
+	}
+
+	public void setTextField_5(JTextField textField_5) {
+		this.textField_5 = textField_5;
+	}
+
+	public JTextField getTextField_6() {
+		return textField_6;
+	}
+
+	public void setTextField_6(JTextField textField_6) {
+		this.textField_6 = textField_6;
+	}
+
+	public static void start() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AdminGUI frame = new AdminGUI();
+					frame.setVisible(true);
+					addItemListener = new AddItemListener(frame);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public AdminGUI() {
+		btnAddItem = new JButton("Add Item");
+		btnShow = new JButton("Show");
+		btnAddIngredient = new JButton("Add Ingredient");
+		btnUpdateItem = new JButton("Update item");
+		btnDeleteItem = new JButton("Delete item");
+		btnShowItemsOn = new JButton("Show items on the menu");
+		btnAddNewIngredient = new JButton("Add new ingredient");
+		btnShow_1 = new JButton("Show");
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 570);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		GridBagLayout gbl_contentPane = new GridBagLayout();
+		gbl_contentPane.columnWidths = new int[]{424, 0};
+		gbl_contentPane.rowHeights = new int[]{521, 0};
+		gbl_contentPane.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		contentPane.setLayout(gbl_contentPane);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		GridBagConstraints gbc_tabbedPane = new GridBagConstraints();
+		gbc_tabbedPane.fill = GridBagConstraints.BOTH;
+		gbc_tabbedPane.gridx = 0;
+		gbc_tabbedPane.gridy = 0;
+		contentPane.add(tabbedPane, gbc_tabbedPane);
+		
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("Add item", null, panel, null);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{59, 298, 0};
+		gbl_panel.rowHeights = new int[]{14, 20, 20, 23, 31, 14, 286, 20, 23, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		JLabel lblCreateANew = new JLabel("Create a new item and add it to the menu");
+		GridBagConstraints gbc_lblCreateANew = new GridBagConstraints();
+		gbc_lblCreateANew.anchor = GridBagConstraints.NORTH;
+		gbc_lblCreateANew.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCreateANew.gridx = 1;
+		gbc_lblCreateANew.gridy = 0;
+		panel.add(lblCreateANew, gbc_lblCreateANew);
+		
+		JLabel lblItemName = new JLabel("Item Name");
+		GridBagConstraints gbc_lblItemName = new GridBagConstraints();
+		gbc_lblItemName.anchor = GridBagConstraints.EAST;
+		gbc_lblItemName.insets = new Insets(0, 0, 5, 5);
+		gbc_lblItemName.gridx = 0;
+		gbc_lblItemName.gridy = 1;
+		panel.add(lblItemName, gbc_lblItemName);
+		
+		textField = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.anchor = GridBagConstraints.NORTH;
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.insets = new Insets(0, 0, 5, 0);
+		gbc_textField.gridx = 1;
+		gbc_textField.gridy = 1;
+		panel.add(textField, gbc_textField);
+		textField.setColumns(10);
+		
+		JLabel lblPrice = new JLabel("Price");
+		GridBagConstraints gbc_lblPrice = new GridBagConstraints();
+		gbc_lblPrice.anchor = GridBagConstraints.EAST;
+		gbc_lblPrice.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPrice.gridx = 0;
+		gbc_lblPrice.gridy = 2;
+		panel.add(lblPrice, gbc_lblPrice);
+		
+		textField_1 = new JTextField();
+		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
+		gbc_textField_1.anchor = GridBagConstraints.NORTH;
+		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
+		gbc_textField_1.gridx = 1;
+		gbc_textField_1.gridy = 2;
+		panel.add(textField_1, gbc_textField_1);
+		textField_1.setColumns(10);
+		
+		GridBagConstraints gbc_btnAddItem = new GridBagConstraints();
+		gbc_btnAddItem.anchor = GridBagConstraints.NORTH;
+		gbc_btnAddItem.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddItem.insets = new Insets(0, 0, 5, 0);
+		gbc_btnAddItem.gridx = 1;
+		gbc_btnAddItem.gridy = 3;
+		panel.add(btnAddItem, gbc_btnAddItem);
+		
+		JLabel lblCompleteIfEntering = new JLabel("Complete if entering a compoun item");
+		GridBagConstraints gbc_lblCompleteIfEntering = new GridBagConstraints();
+		gbc_lblCompleteIfEntering.insets = new Insets(0, 0, 5, 0);
+		gbc_lblCompleteIfEntering.gridx = 1;
+		gbc_lblCompleteIfEntering.gridy = 5;
+		panel.add(lblCompleteIfEntering, gbc_lblCompleteIfEntering);
+		
+		JList<String> list = new JList<String>();
+		GridBagConstraints gbc_list = new GridBagConstraints();
+		gbc_list.fill = GridBagConstraints.BOTH;
+		gbc_list.insets = new Insets(0, 0, 5, 0);
+		gbc_list.gridx = 1;
+		gbc_list.gridy = 6;
+		panel.add(list, gbc_list);
+		
+		JLabel lblIngredient = new JLabel("Ingredient");
+		GridBagConstraints gbc_lblIngredient = new GridBagConstraints();
+		gbc_lblIngredient.anchor = GridBagConstraints.EAST;
+		gbc_lblIngredient.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIngredient.gridx = 0;
+		gbc_lblIngredient.gridy = 7;
+		panel.add(lblIngredient, gbc_lblIngredient);
+		
+		textField_2 = new JTextField();
+		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
+		gbc_textField_2.anchor = GridBagConstraints.NORTH;
+		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_2.insets = new Insets(0, 0, 5, 0);
+		gbc_textField_2.gridx = 1;
+		gbc_textField_2.gridy = 7;
+		panel.add(textField_2, gbc_textField_2);
+		textField_2.setColumns(10);
+		
+		GridBagConstraints gbc_btnShow = new GridBagConstraints();
+		gbc_btnShow.anchor = GridBagConstraints.NORTHWEST;
+		gbc_btnShow.insets = new Insets(0, 0, 0, 5);
+		gbc_btnShow.gridx = 0;
+		gbc_btnShow.gridy = 8;
+		panel.add(btnShow, gbc_btnShow);
+		
+		GridBagConstraints gbc_btnAddIngredient = new GridBagConstraints();
+		gbc_btnAddIngredient.anchor = GridBagConstraints.NORTH;
+		gbc_btnAddIngredient.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddIngredient.gridx = 1;
+		gbc_btnAddIngredient.gridy = 8;
+		panel.add(btnAddIngredient, gbc_btnAddIngredient);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane.addTab("Delete item", null, panel_1, null);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_1.setLayout(gbl_panel_1);
+		
+		JLabel lblDeleteAnItem = new JLabel("Delete an item from the menu");
+		GridBagConstraints gbc_lblDeleteAnItem = new GridBagConstraints();
+		gbc_lblDeleteAnItem.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDeleteAnItem.gridx = 1;
+		gbc_lblDeleteAnItem.gridy = 0;
+		panel_1.add(lblDeleteAnItem, gbc_lblDeleteAnItem);
+		
+		Component horizontalStrut = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut = new GridBagConstraints();
+		gbc_horizontalStrut.insets = new Insets(0, 0, 5, 5);
+		gbc_horizontalStrut.gridx = 2;
+		gbc_horizontalStrut.gridy = 0;
+		panel_1.add(horizontalStrut, gbc_horizontalStrut);
+		
+		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_1 = new GridBagConstraints();
+		gbc_horizontalStrut_1.insets = new Insets(0, 0, 5, 0);
+		gbc_horizontalStrut_1.gridx = 3;
+		gbc_horizontalStrut_1.gridy = 0;
+		panel_1.add(horizontalStrut_1, gbc_horizontalStrut_1);
+		
+		JLabel lblItemName_1 = new JLabel("Item Name");
+		GridBagConstraints gbc_lblItemName_1 = new GridBagConstraints();
+		gbc_lblItemName_1.anchor = GridBagConstraints.EAST;
+		gbc_lblItemName_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblItemName_1.gridx = 0;
+		gbc_lblItemName_1.gridy = 1;
+		panel_1.add(lblItemName_1, gbc_lblItemName_1);
+		
+		textField_3 = new JTextField();
+		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+		gbc_textField_3.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_3.gridx = 1;
+		gbc_textField_3.gridy = 1;
+		panel_1.add(textField_3, gbc_textField_3);
+		textField_3.setColumns(10);
+		
+		GridBagConstraints gbc_btnDeleteItem = new GridBagConstraints();
+		gbc_btnDeleteItem.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnDeleteItem.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDeleteItem.gridx = 1;
+		gbc_btnDeleteItem.gridy = 2;
+		panel_1.add(btnDeleteItem, gbc_btnDeleteItem);
+		
+		GridBagConstraints gbc_btnShowItemsOn = new GridBagConstraints();
+		gbc_btnShowItemsOn.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnShowItemsOn.insets = new Insets(0, 0, 5, 5);
+		gbc_btnShowItemsOn.gridx = 1;
+		gbc_btnShowItemsOn.gridy = 3;
+		panel_1.add(btnShowItemsOn, gbc_btnShowItemsOn);
+		
+		JList<String> list_1 = new JList<String>();
+		GridBagConstraints gbc_list_1 = new GridBagConstraints();
+		gbc_list_1.insets = new Insets(0, 0, 5, 5);
+		gbc_list_1.fill = GridBagConstraints.BOTH;
+		gbc_list_1.gridx = 1;
+		gbc_list_1.gridy = 4;
+		panel_1.add(list_1, gbc_list_1);
+		
+		Component verticalStrut = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut = new GridBagConstraints();
+		gbc_verticalStrut.insets = new Insets(0, 0, 5, 5);
+		gbc_verticalStrut.gridx = 1;
+		gbc_verticalStrut.gridy = 5;
+		panel_1.add(verticalStrut, gbc_verticalStrut);
+		
+		Component verticalStrut_1 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_1 = new GridBagConstraints();
+		gbc_verticalStrut_1.insets = new Insets(0, 0, 0, 5);
+		gbc_verticalStrut_1.gridx = 1;
+		gbc_verticalStrut_1.gridy = 6;
+		panel_1.add(verticalStrut_1, gbc_verticalStrut_1);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("Update item", null, panel_2, null);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel_2.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_2.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_2.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_2.setLayout(gbl_panel_2);
+		
+		JLabel lblUpdateAnItem = new JLabel("Update an item from the menu");
+		GridBagConstraints gbc_lblUpdateAnItem = new GridBagConstraints();
+		gbc_lblUpdateAnItem.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUpdateAnItem.gridx = 1;
+		gbc_lblUpdateAnItem.gridy = 0;
+		panel_2.add(lblUpdateAnItem, gbc_lblUpdateAnItem);
+		
+		Component horizontalStrut_2 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_2 = new GridBagConstraints();
+		gbc_horizontalStrut_2.insets = new Insets(0, 0, 5, 5);
+		gbc_horizontalStrut_2.gridx = 2;
+		gbc_horizontalStrut_2.gridy = 0;
+		panel_2.add(horizontalStrut_2, gbc_horizontalStrut_2);
+		
+		Component horizontalStrut_3 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_3 = new GridBagConstraints();
+		gbc_horizontalStrut_3.insets = new Insets(0, 0, 5, 0);
+		gbc_horizontalStrut_3.gridx = 3;
+		gbc_horizontalStrut_3.gridy = 0;
+		panel_2.add(horizontalStrut_3, gbc_horizontalStrut_3);
+		
+		JLabel lblEditItem = new JLabel("Edit item:");
+		GridBagConstraints gbc_lblEditItem = new GridBagConstraints();
+		gbc_lblEditItem.anchor = GridBagConstraints.WEST;
+		gbc_lblEditItem.insets = new Insets(0, 0, 5, 5);
+		gbc_lblEditItem.gridx = 0;
+		gbc_lblEditItem.gridy = 1;
+		panel_2.add(lblEditItem, gbc_lblEditItem);
+		
+		textField_4 = new JTextField();
+		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
+		gbc_textField_4.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_4.gridx = 1;
+		gbc_textField_4.gridy = 1;
+		panel_2.add(textField_4, gbc_textField_4);
+		textField_4.setColumns(10);
+		
+		JLabel lblNewPrice = new JLabel("New price:");
+		GridBagConstraints gbc_lblNewPrice = new GridBagConstraints();
+		gbc_lblNewPrice.anchor = GridBagConstraints.WEST;
+		gbc_lblNewPrice.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewPrice.gridx = 0;
+		gbc_lblNewPrice.gridy = 2;
+		panel_2.add(lblNewPrice, gbc_lblNewPrice);
+		
+		textField_5 = new JTextField();
+		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
+		gbc_textField_5.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_5.gridx = 1;
+		gbc_textField_5.gridy = 2;
+		panel_2.add(textField_5, gbc_textField_5);
+		textField_5.setColumns(10);
+		
+		JLabel lblNewIngredient = new JLabel("New ingredient:");
+		GridBagConstraints gbc_lblNewIngredient = new GridBagConstraints();
+		gbc_lblNewIngredient.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewIngredient.anchor = GridBagConstraints.WEST;
+		gbc_lblNewIngredient.gridx = 0;
+		gbc_lblNewIngredient.gridy = 3;
+		panel_2.add(lblNewIngredient, gbc_lblNewIngredient);
+		
+		textField_6 = new JTextField();
+		GridBagConstraints gbc_textField_6 = new GridBagConstraints();
+		gbc_textField_6.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_6.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_6.gridx = 1;
+		gbc_textField_6.gridy = 3;
+		panel_2.add(textField_6, gbc_textField_6);
+		textField_6.setColumns(10);
+		
+		GridBagConstraints gbc_btnUpdateItem = new GridBagConstraints();
+		gbc_btnUpdateItem.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnUpdateItem.insets = new Insets(0, 0, 5, 5);
+		gbc_btnUpdateItem.gridx = 1;
+		gbc_btnUpdateItem.gridy = 4;
+		panel_2.add(btnUpdateItem, gbc_btnUpdateItem);
+		
+		JLabel lblPressIfEditing = new JLabel("Press if editing the ingredients of the item");
+		GridBagConstraints gbc_lblPressIfEditing = new GridBagConstraints();
+		gbc_lblPressIfEditing.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPressIfEditing.gridx = 1;
+		gbc_lblPressIfEditing.gridy = 5;
+		panel_2.add(lblPressIfEditing, gbc_lblPressIfEditing);
+		
+		GridBagConstraints gbc_btnShow_1 = new GridBagConstraints();
+		gbc_btnShow_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnShow_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnShow_1.gridx = 0;
+		gbc_btnShow_1.gridy = 6;
+		panel_2.add(btnShow_1, gbc_btnShow_1);
+		
+		GridBagConstraints gbc_btnAddNewIngredient = new GridBagConstraints();
+		gbc_btnAddNewIngredient.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddNewIngredient.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAddNewIngredient.gridx = 1;
+		gbc_btnAddNewIngredient.gridy = 6;
+		panel_2.add(btnAddNewIngredient, gbc_btnAddNewIngredient);
+		
+		JList<String> list_2 = new JList<String>();
+		GridBagConstraints gbc_list_2 = new GridBagConstraints();
+		gbc_list_2.insets = new Insets(0, 0, 5, 5);
+		gbc_list_2.fill = GridBagConstraints.BOTH;
+		gbc_list_2.gridx = 1;
+		gbc_list_2.gridy = 7;
+		panel_2.add(list_2, gbc_list_2);
+		
+		Component verticalStrut_2 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_2 = new GridBagConstraints();
+		gbc_verticalStrut_2.insets = new Insets(0, 0, 5, 5);
+		gbc_verticalStrut_2.gridx = 1;
+		gbc_verticalStrut_2.gridy = 8;
+		panel_2.add(verticalStrut_2, gbc_verticalStrut_2);
+		
+		Component verticalStrut_3 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_3 = new GridBagConstraints();
+		gbc_verticalStrut_3.insets = new Insets(0, 0, 0, 5);
+		gbc_verticalStrut_3.gridx = 1;
+		gbc_verticalStrut_3.gridy = 9;
+		panel_2.add(verticalStrut_3, gbc_verticalStrut_3);
+		
+		//btnAddItem.addActionListener(addItemListener);
+	}
+
+}

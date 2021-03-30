@@ -1,0 +1,4 @@
+Generated bill for order with id: 0
+Product Onion priced at 4.9
+Product Potato priced at 4.3
+Total of: 9.2

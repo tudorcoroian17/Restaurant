@@ -1,0 +1,5 @@
+Generated bill for order with id: 1
+Product Taco priced at 32.7
+Product Egg priced at 1.7
+Product Milk priced at 2.9
+Total of: 37.300000000000004

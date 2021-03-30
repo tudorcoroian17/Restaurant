@@ -1,0 +1,281 @@
+package presentation;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.Insets;
+import javax.swing.JTextField;
+import javax.swing.JList;
+import javax.swing.JButton;
+
+@SuppressWarnings("serial")
+public class AdminGUI extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+
+	public static void start() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AdminGUI frame = new AdminGUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public AdminGUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 570);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		contentPane.add(tabbedPane, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		tabbedPane.addTab("New tab", null, panel, null);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		JLabel lblAddANew = new JLabel("Add a new item to the menu");
+		GridBagConstraints gbc_lblAddANew = new GridBagConstraints();
+		gbc_lblAddANew.insets = new Insets(0, 0, 5, 5);
+		gbc_lblAddANew.gridx = 1;
+		gbc_lblAddANew.gridy = 0;
+		panel.add(lblAddANew, gbc_lblAddANew);
+		
+		Component horizontalStrut = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut = new GridBagConstraints();
+		gbc_horizontalStrut.insets = new Insets(0, 0, 5, 5);
+		gbc_horizontalStrut.gridx = 2;
+		gbc_horizontalStrut.gridy = 0;
+		panel.add(horizontalStrut, gbc_horizontalStrut);
+		
+		Component horizontalStrut_1 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_1 = new GridBagConstraints();
+		gbc_horizontalStrut_1.insets = new Insets(0, 0, 5, 0);
+		gbc_horizontalStrut_1.gridx = 3;
+		gbc_horizontalStrut_1.gridy = 0;
+		panel.add(horizontalStrut_1, gbc_horizontalStrut_1);
+		
+		JLabel lblItemName = new JLabel("Item name");
+		GridBagConstraints gbc_lblItemName = new GridBagConstraints();
+		gbc_lblItemName.anchor = GridBagConstraints.WEST;
+		gbc_lblItemName.insets = new Insets(0, 0, 5, 5);
+		gbc_lblItemName.gridx = 0;
+		gbc_lblItemName.gridy = 1;
+		panel.add(lblItemName, gbc_lblItemName);
+		
+		textField = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.insets = new Insets(0, 0, 5, 5);
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.gridx = 1;
+		gbc_textField.gridy = 1;
+		panel.add(textField, gbc_textField);
+		textField.setColumns(10);
+		
+		JLabel lblPrice = new JLabel("Price");
+		GridBagConstraints gbc_lblPrice = new GridBagConstraints();
+		gbc_lblPrice.anchor = GridBagConstraints.WEST;
+		gbc_lblPrice.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPrice.gridx = 0;
+		gbc_lblPrice.gridy = 2;
+		panel.add(lblPrice, gbc_lblPrice);
+		
+		textField_1 = new JTextField();
+		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
+		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_1.gridx = 1;
+		gbc_textField_1.gridy = 2;
+		panel.add(textField_1, gbc_textField_1);
+		textField_1.setColumns(10);
+		
+		JButton btnAddItem = new JButton("Add item");
+		GridBagConstraints gbc_btnAddItem = new GridBagConstraints();
+		gbc_btnAddItem.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddItem.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAddItem.gridx = 1;
+		gbc_btnAddItem.gridy = 3;
+		panel.add(btnAddItem, gbc_btnAddItem);
+		
+		JButton btnShow = new JButton("Show");
+		GridBagConstraints gbc_btnShow = new GridBagConstraints();
+		gbc_btnShow.insets = new Insets(0, 0, 5, 5);
+		gbc_btnShow.gridx = 0;
+		gbc_btnShow.gridy = 4;
+		panel.add(btnShow, gbc_btnShow);
+		
+		JLabel lblCompleteOnlyIf = new JLabel("Complete only if adding a compound product");
+		GridBagConstraints gbc_lblCompleteOnlyIf = new GridBagConstraints();
+		gbc_lblCompleteOnlyIf.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCompleteOnlyIf.gridx = 1;
+		gbc_lblCompleteOnlyIf.gridy = 4;
+		panel.add(lblCompleteOnlyIf, gbc_lblCompleteOnlyIf);
+		
+		JList list = new JList();
+		GridBagConstraints gbc_list = new GridBagConstraints();
+		gbc_list.insets = new Insets(0, 0, 5, 5);
+		gbc_list.fill = GridBagConstraints.BOTH;
+		gbc_list.gridx = 1;
+		gbc_list.gridy = 5;
+		panel.add(list, gbc_list);
+		
+		JLabel lblIngredient = new JLabel("Ingredient");
+		GridBagConstraints gbc_lblIngredient = new GridBagConstraints();
+		gbc_lblIngredient.anchor = GridBagConstraints.WEST;
+		gbc_lblIngredient.insets = new Insets(0, 0, 5, 5);
+		gbc_lblIngredient.gridx = 0;
+		gbc_lblIngredient.gridy = 6;
+		panel.add(lblIngredient, gbc_lblIngredient);
+		
+		textField_2 = new JTextField();
+		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
+		gbc_textField_2.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_2.gridx = 1;
+		gbc_textField_2.gridy = 6;
+		panel.add(textField_2, gbc_textField_2);
+		textField_2.setColumns(10);
+		
+		JButton btnAddIngredient = new JButton("Add ingredient");
+		GridBagConstraints gbc_btnAddIngredient = new GridBagConstraints();
+		gbc_btnAddIngredient.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnAddIngredient.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAddIngredient.gridx = 1;
+		gbc_btnAddIngredient.gridy = 7;
+		panel.add(btnAddIngredient, gbc_btnAddIngredient);
+		
+		Component verticalStrut = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut = new GridBagConstraints();
+		gbc_verticalStrut.insets = new Insets(0, 0, 5, 5);
+		gbc_verticalStrut.gridx = 1;
+		gbc_verticalStrut.gridy = 8;
+		panel.add(verticalStrut, gbc_verticalStrut);
+		
+		Component verticalStrut_1 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_1 = new GridBagConstraints();
+		gbc_verticalStrut_1.insets = new Insets(0, 0, 0, 5);
+		gbc_verticalStrut_1.gridx = 1;
+		gbc_verticalStrut_1.gridy = 9;
+		panel.add(verticalStrut_1, gbc_verticalStrut_1);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_1, null);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0, 0};
+		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_1.columnWeights = new double[]{0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_1.setLayout(gbl_panel_1);
+		
+		JLabel lblDeleteAnItem = new JLabel("Delete an item from the menu");
+		GridBagConstraints gbc_lblDeleteAnItem = new GridBagConstraints();
+		gbc_lblDeleteAnItem.insets = new Insets(0, 0, 5, 5);
+		gbc_lblDeleteAnItem.gridx = 1;
+		gbc_lblDeleteAnItem.gridy = 0;
+		panel_1.add(lblDeleteAnItem, gbc_lblDeleteAnItem);
+		
+		Component horizontalStrut_2 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_2 = new GridBagConstraints();
+		gbc_horizontalStrut_2.insets = new Insets(0, 0, 5, 5);
+		gbc_horizontalStrut_2.gridx = 2;
+		gbc_horizontalStrut_2.gridy = 0;
+		panel_1.add(horizontalStrut_2, gbc_horizontalStrut_2);
+		
+		Component horizontalStrut_3 = Box.createHorizontalStrut(20);
+		GridBagConstraints gbc_horizontalStrut_3 = new GridBagConstraints();
+		gbc_horizontalStrut_3.insets = new Insets(0, 0, 5, 0);
+		gbc_horizontalStrut_3.gridx = 3;
+		gbc_horizontalStrut_3.gridy = 0;
+		panel_1.add(horizontalStrut_3, gbc_horizontalStrut_3);
+		
+		JLabel lblItemName_1 = new JLabel("Item name");
+		GridBagConstraints gbc_lblItemName_1 = new GridBagConstraints();
+		gbc_lblItemName_1.anchor = GridBagConstraints.EAST;
+		gbc_lblItemName_1.insets = new Insets(0, 0, 5, 5);
+		gbc_lblItemName_1.gridx = 0;
+		gbc_lblItemName_1.gridy = 1;
+		panel_1.add(lblItemName_1, gbc_lblItemName_1);
+		
+		textField_3 = new JTextField();
+		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
+		gbc_textField_3.insets = new Insets(0, 0, 5, 5);
+		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField_3.gridx = 1;
+		gbc_textField_3.gridy = 1;
+		panel_1.add(textField_3, gbc_textField_3);
+		textField_3.setColumns(10);
+		
+		JButton btnShow_1 = new JButton("Show");
+		GridBagConstraints gbc_btnShow_1 = new GridBagConstraints();
+		gbc_btnShow_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnShow_1.insets = new Insets(0, 0, 5, 5);
+		gbc_btnShow_1.gridx = 0;
+		gbc_btnShow_1.gridy = 2;
+		panel_1.add(btnShow_1, gbc_btnShow_1);
+		
+		JButton btnDeleteItem = new JButton("Delete item");
+		GridBagConstraints gbc_btnDeleteItem = new GridBagConstraints();
+		gbc_btnDeleteItem.fill = GridBagConstraints.HORIZONTAL;
+		gbc_btnDeleteItem.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDeleteItem.gridx = 1;
+		gbc_btnDeleteItem.gridy = 2;
+		panel_1.add(btnDeleteItem, gbc_btnDeleteItem);
+		
+		JList list_1 = new JList();
+		GridBagConstraints gbc_list_1 = new GridBagConstraints();
+		gbc_list_1.insets = new Insets(0, 0, 5, 5);
+		gbc_list_1.fill = GridBagConstraints.BOTH;
+		gbc_list_1.gridx = 1;
+		gbc_list_1.gridy = 3;
+		panel_1.add(list_1, gbc_list_1);
+		
+		Component verticalStrut_2 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_2 = new GridBagConstraints();
+		gbc_verticalStrut_2.insets = new Insets(0, 0, 5, 5);
+		gbc_verticalStrut_2.gridx = 1;
+		gbc_verticalStrut_2.gridy = 4;
+		panel_1.add(verticalStrut_2, gbc_verticalStrut_2);
+		
+		Component verticalStrut_3 = Box.createVerticalStrut(20);
+		GridBagConstraints gbc_verticalStrut_3 = new GridBagConstraints();
+		gbc_verticalStrut_3.insets = new Insets(0, 0, 0, 5);
+		gbc_verticalStrut_3.gridx = 1;
+		gbc_verticalStrut_3.gridy = 5;
+		panel_1.add(verticalStrut_3, gbc_verticalStrut_3);
+		
+		JPanel panel_2 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_2, null);
+		GridBagLayout gbl_panel_2 = new GridBagLayout();
+		gbl_panel_2.columnWidths = new int[]{0};
+		gbl_panel_2.rowHeights = new int[]{0};
+		gbl_panel_2.columnWeights = new double[]{Double.MIN_VALUE};
+		gbl_panel_2.rowWeights = new double[]{Double.MIN_VALUE};
+		panel_2.setLayout(gbl_panel_2);
+	}
+
+}
